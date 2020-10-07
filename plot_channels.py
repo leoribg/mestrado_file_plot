@@ -21,7 +21,7 @@ print(color_array)
 freq_label = x
 plt.bar(x, y, bottom=-120, tick_label=freq_label, width=0.8, color=color_array)
 plt.ylim(top=0)
-plt.xlabel('Frequency')
+plt.xlabel('Channel')
 plt.ylabel('dBm')
 plt.title('Power Level from measured channels\nWi-SUN')
 #plt.legend()
