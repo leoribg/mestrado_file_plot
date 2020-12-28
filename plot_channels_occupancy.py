@@ -10,10 +10,10 @@ with open('meas.txt','r') as csvfile:
     plots = csv.reader(csvfile, delimiter=',')
     for row in plots:
         x.append(int(row[0]))
-        y.append((120 - abs(float(row[1]))))
-        if (float(row[1]) < -90) :
+        y.append(int(row[2]))
+        if (int(row[2]) < 5) :
                 color_array.append('green')
-        elif (float(row[1]) > -90 and float(row[1]) < -60) :
+        elif (int(row[2]) > 5 and int(row[2]) < 40) :
                 color_array.append('yellow')
         else :
                 color_array.append('red')
@@ -21,10 +21,10 @@ with open('meas.txt','r') as csvfile:
 print(color_array)
 
 freq_label = x
-plt.bar(x, y, bottom=-120, tick_label=freq_label, width=0.8, color=color_array)
-plt.ylim(top=0)
+plt.bar(x, y, bottom=0, tick_label=freq_label, width=0.8, color=color_array)
+plt.ylim(top=100)
 plt.xlabel('Channel')
-plt.ylabel('dBm')
-plt.title('Power Level from measured channels\nWi-SUN')
+plt.ylabel('%')
+plt.title('Occupancy from measured channels\nWi-SUN')
 #plt.legend()
 plt.show()
